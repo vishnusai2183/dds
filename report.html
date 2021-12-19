@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="This webpage is for presenting report text">
+    <meta name="keywords" content="dds">
+    <meta name="author" content="Group-12">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== CSS ======  -->
+    <link rel="stylesheet" href="css/tailwind.css">
+
+    <!-- ===== Title ===== -->
+    <title>Report</title>
+</head>
+
+<body class="h-screen bg-gray-100" style="background-color: bisque;">
+
+    <!-- ===== Heading ===== -->
+    <div class="h-16 bg-white shadow-lg flex items-center justify-center relative">
+        <h1 class="text-center font-semibold font-lora text-lg uppercase ">CS203- Design of Digital System Laboratory
+        </h1>
+        <div class="absolute right-4 space-x-2 text-gray-400">
+            <a class="text-gray-500 font-semibold" href="report.html">Report</a>
+            <a class="hover:text-gray-500 hover:font-semibold" href="question.html">Question
+            </a>
+        </div>
+    </div>
+
+    <!--  -->
+    <div class="relative w-full" style="height: calc(100vh - 4rem)">
+        <div class="h-4/5 w-2/12 left-4 bg-white flex flex-col justify-center items-center space-y-5 uppercase font-lora absolute shadow-lg rounded-xl"
+            style="height: 90%; top: 50%; transform: translateY(-50%);">
+            <a class="block rounded-md bg-green-50 w-4/5 pl-2 hover:bg-green-100" href="#aim">Aim</a>
+            <a class="block rounded-md bg-green-50 w-4/5 pl-2 hover:bg-green-100" href="#theory">Theory</a>
+            <a class="block rounded-md bg-green-50 w-4/5 pl-2 hover:bg-green-100" href="#procedure">Procedure</a>
+            <a class="block rounded-md bg-green-50 w-4/5 pl-2 hover:bg-green-100" href="simulator.html">Simulation</a>
+            <a class="block rounded-md bg-green-50 w-4/5 pl-2 hover:bg-green-100" href="#reference">Reference</a>
+        </div>
+
+        <div class="bg-white py-5 pl-10  font-lora rounded-xl shadow-xl absolute right-4"
+            style="height: 90%; width: 78%; top: 50%; transform: translateY(-50%)">
+            <div class="h-full overflow-y-scroll">
+                <h2 class="text-center font-bold text-lg font-lora mb-5">SA0 and SA1 fault on carry function of full adder circuit</h2>
+
+                <!-- ===== Aim ===== -->
+                <section class="mb-5" id="aim">
+                    <h2 class="font-bold text-lg">Aim</h2>
+                    <p>To detect both the SA0 and SA1 faults on the logic circuit that represents the carry function of a Full-Adder.
+                    </p>
+                </section>
+
+                <!-- ===== Theory ===== -->
+                <section class="mb-5 space-y-1" id="theory">
+                    <h2 class="font-bold text-lg">Theory</h2>
+                    <p>
+                        Fault is a logic level abstraction of a physical defect. It is used to describe the change in
+                        the
+                        logic function of a device caused by the defect. Fault abstractions reduce the number of
+                        conditions
+                        that must be considered in deriving tests.
+                    </p>
+                     <p>
+                        A stuck-at fault (SAF) is a logic-level fault that mimics a manufacturing defect on a digital
+                        circuit. An SAF is of two types- stuck-at-0 (SA0) and stuck-at-1 (SA1) faults. Individual bit or
+                        signal on a wire of a logic gate is assumed to be stuck at Logical '1' or '0' if that bit or the
+                        signal is converted to logic-1 or logic-0 irrespective of its previous or assigned value.
+                    </p>
+                    <p>
+                        Logical faults are used to represent physical faults. They simplify the fault analysis process
+                        and
+                        reduces the number of faults.
+                    </p>
+                    <h2 class="text-lg pt-5 font-bold">Full-Adder</h2>
+                    <p>
+                        Full Adder is the adder which adds three inputs and produces two outputs. The first two inputs are A and B and the third input is an input carry as 
+                        C-IN. The output carry is designated as C-OUT and the normal output is designated as S which is SUM
+                    </p>
+                    <p>
+                        The truth table of the ullf adder is as shown below. The inputs are designated as A, B and Cin, while
+                        the
+                        S represents the sum output and the C represents the carry output.
+                    </p>
+                    <img class="w-60 pt-2 mx-auto" src="images/truth_table.png">
+                    
+                    <p>
+                        For the full-adder circuit, we can easily verify the results by looking into the output and comparing them. But most chips aren’t that simple.
+                         We may need a memory element or a look-up table to store all the correct test results, which will be used in comparison during the testing process. 
+                        This also increases the memory overhead exponentially with growing inputs.
+                    </p>
+                    <p>
+                        The carry output is 0 unless both the inputs are 1. The S(sum) output represents the least
+                        significant bit of the addition operation.
+                    </p>
+                    <p>
+                        The simplified Boolean expressions for the two outputs can be obtained directly from the truth
+                        table. They are:
+                    </p>
+                    <div class="bg-green-50 p-2 rounded-sm">
+                        <p class="text-center font-bold">
+                            S = A’ B’ C-IN + A’ B C-IN’ + A B’ C-IN’ + A B C-IN
+                        </p>
+                        <p class="text-center font-bold">
+                            C = AB + BC + AC
+                        </p>
+                    </div>
+                   
+                    <img class="w-60 pt-2 mx-auto" src="images/fulladder2.png">
+                    <p class="text-center text-sm">Fig - Full Adder</p>
+                </section>
+
+                <!-- ===== Procedure ===== -->
+                <section class="mb-5" id="procedure">
+                    <h2 class="font-bold text-lg">Procedure</h2>
+                    <div class="mt-2">
+                        <h2 class="font-semibold">Simulator</h2>
+                    
+                        <p>Step - 1: Give the input of C and C'. Here C and C' can be either 0 or 1.</p>
+                        <p>Step - 2: Here C is the expected output, where as C' is the final output.  
+                            </p>
+                        <p>Step - 3:Click on the Check button to get the result on the truth table. </p>
+                        <p>Step - 4:we get if there is a fault or not , if there is a fault it will show us which faults might have happened </p>
+                        <p>Step - 5: For further simulation - repeat the above steps.</p>
+                    </div>
+                    
+                </section>
+
+                <!-- ===== Reference ===== -->
+                <section id="reference">
+                    <h2 class="font-bold text-lg">Reference</h2>
+                    <ul class="pl-5 list-disc">
+                        <li>Digital Design, 5th Edition By M. Morris Mano And Michael Ciletti</li>
+                        <li>Internet</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>
